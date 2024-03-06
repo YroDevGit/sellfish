@@ -61,10 +61,11 @@ padding: 10px 5px 10px 5px;
     border-radius: 10px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     margin: 5px;
+    outline: none;
 }
 .search-sticky{background-color: gray; border-radius: 5px; margin-bottom: 8px;}
 .search-parent{background-color: rgb(227, 241, 250);}
-.prod-description{max-height: 100px;overflow-y: hidden; margin-bottom: 10px;}
+.prod-description{height: 100px;overflow-y: hidden; margin-bottom: 10px;}
 
 @media screen and (max-width:700px) {
    /* .search-parent{position: relative;margin: auto;}

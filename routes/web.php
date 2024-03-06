@@ -38,9 +38,4 @@ Route::get("/api/addToCart", [cartcontroll::class,"addToCart"]);
 
 
 // React api
-Route::get("/api/showFish", [fishcontroll::class,"showFish"]);
-
-Route::get("/api/getUser", function(){
-    $userid = 5;
-    return response()->json($userid);
-});
+include "reactapi.php";

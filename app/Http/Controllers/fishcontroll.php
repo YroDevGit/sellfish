@@ -15,7 +15,7 @@ class fishcontroll extends Controller
             "fish" => "required",
             "color" => "required",
             "price" => "required|min:1",
-            "image" => "required|mimes:png,jpg,gif|max:2048",
+            "image" => "required|mimes:png,jpg,gif,webp|max:2048",
             "quantity" => "required|min:1",
             "description" => "required"
         ]);

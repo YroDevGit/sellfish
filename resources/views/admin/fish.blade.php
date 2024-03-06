@@ -40,7 +40,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label" for="basic-default-phone">Image  @error('image')<span class="text-danger">* Please fill up this field.</span>@enderror</label>
+            <label class="form-label" for="basic-default-phone">Image  @error('image')<span class="text-danger">{{$message}}</span>@enderror</label>
             <input
             name="image"
               type="file"

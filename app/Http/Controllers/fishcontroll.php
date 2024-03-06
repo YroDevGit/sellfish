@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\fish;
+use App\Http\Unique\code;
 
 
 class fishcontroll extends Controller
@@ -24,9 +25,10 @@ class fishcontroll extends Controller
         $newfile = "img".$fr->format("YMdHmi").".".$img->extension();
 
         $path = $img->storeAs("public/uploads",$newfile);
-        $code = array("1","2","3","4","5","6","7","8","9","0","T","Y","R","O","N", "E", "M","A","L","C","Z","P","H","U","I","G","F","K","D","S");
-        shuffle($code);
-        $fish_code = "CD".$fr->format("YMdHmi").$code[0].$code[1].$code[2].$code[3].$code[4].$code[5].$code[6].$code[7].$code[8].$code[9].$code[10];
+       
+        $fsh = new code();
+        $fish_code = $fsh->getCode();
+        
         fish::insert([
             "fish_code" => $fish_code,
             "fish_name" => $req->input("fish"),
@@ -45,7 +47,6 @@ class fishcontroll extends Controller
         $val = "%".$req->input("q")."%"; 
         $col = "%".$req->input("c")."%";  
         $ret = fish::where("fish_code", "like", $val)->orWhere("fish_name", "like", $val)->where("fish_color", "like", $col)->take(7)->get();
-        
         return response()->json($ret);
     }
 }

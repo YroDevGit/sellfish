@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\cart;
+use App\Http\Unique\code;
 
 class cartcontroll extends Controller
 {
@@ -14,11 +15,8 @@ class cartcontroll extends Controller
         $fish = $req->input('fish');
         $price = $req->input('price');
 
-        $fr = new \DateTime();
-        $code = array("1","2","3","4","5","6","7","8","9","0","T","Y","R","O","N", "E", "M","A","L","C","Z","P","H","U","I","G","F","K","D","S");
-        shuffle($code);
-        $newText = $code[0].$code[1].$code[2].$code[3].$code[4].$code[5].$fr->format("YMdHmi").$code[6].$code[7];
-        
+        $cd = new code();
+        $newText = $cd->getCode();
 
         cart::insert([
             "user_id" => $user,

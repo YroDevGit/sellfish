@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Http\Controllers\cartcontroll; // Corrected spelling
+use App\Http\Controllers\cartcontroll; 
 
 class CartIcon extends Component
 {

@@ -7,6 +7,8 @@ use App\Models\cart;
 
 class cartcontroll extends Controller
 {
+
+    // add to cart
     public function addToCart(Request $req){
         $user = $req->input('id');
         $fish = $req->input('fish');
@@ -35,5 +37,27 @@ class cartcontroll extends Controller
             ]
         ];
         return response()->json($success);
+    }
+
+
+    //get the cart items
+    public function getCartNumberOfItems(){
+        $user = session("userID");
+        $data = cart::where("user_id",$user)->get();
+        return $data;
+    }
+
+
+    //get the cart items count
+    public function getCartNumber(){
+        $user = session("userID");
+        $data = cart::where("user_id",$user)->count();
+        return $data;
+    }
+
+    // json data to front end
+    public function getCartItems(Request $req){
+        $data = $this->getCartNumberOfItems();
+        return response()->json($data);
     }
 }

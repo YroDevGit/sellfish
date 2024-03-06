@@ -9,3 +9,5 @@ Route::get("/api/getUser", function(){
     $userid = 5;
     return response()->json($userid);
 });
+
+Route::get("/api/getCartItems", [cartcontroll::class,"getCartItems"]);

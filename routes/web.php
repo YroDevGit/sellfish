@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\fishcontroll;
 use App\Http\Controllers\cartcontroll;
+use Illuminate\Contracts\Session\Session;
+use App\Livewire\CartIcon;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,9 @@ use App\Http\Controllers\cartcontroll;
 
 //Basic url
 Route::get('/', function () {
+    Session()->put("userID","5");
     return view('index');
+    
 });
 
 Route::get('/test', function(){

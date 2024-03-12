@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\fish;
 use App\Http\Unique\code;
 
-
 class fishcontroll extends Controller
 {
     //

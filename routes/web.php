@@ -27,6 +27,11 @@ Route::get('/', function () {
 Route::get('/test', function(){
 return view('admin/fish');
 });
+Route::get("/tst",[cartcontroll::class,"getProductOnCart"]);
+
+Route::get("/homepage", function(){
+    return view('index');
+})->name("home");
 
 
 

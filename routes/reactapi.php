@@ -11,3 +11,5 @@ Route::get("/api/getUser", function(){
 });
 
 Route::get("/api/getCartItems", [cartcontroll::class,"getCartItems"]);
+
+Route::get("/api/getMaxQty",[cartcontroll::class,"getProductOnCart"]);

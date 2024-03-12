@@ -5,15 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\cart;
 use App\Http\Unique\code;
+use Illuminate\Support\Facades\DB;
 
 class cartcontroll extends Controller
 {
 
     // add to cart
     public function addToCart(Request $req){
+
+        $req->validate([
+            "qty" => "integer|max:".$req->input('maximum')
+        ]);
+
         $user = $req->input('id');
         $fish = $req->input('fish');
         $price = $req->input('price');
+        $qty = $req->input('qty');
 
         $cd = new code();
         $newText = $cd->getCode();
@@ -22,19 +29,20 @@ class cartcontroll extends Controller
             "user_id" => $user,
             "fish_code" => $fish,
             "price" => $price,
-            "quantity" => "1",
+            "quantity" => $qty,
             "total" => $price,
             "purchase_code" => $newText,
             "stat" => "0",
             "purchase_date" => now()
         ]);
-        $success = [
+        $successMessage = [
             [
-                "fish_id" => 5,
-                "fish_code" => "CD2024Mar05010334ANCRI7G48UL"
+                "fish_id" => $fish,
+                "qty" => $req->input('qty'),
+                "max" => $req->input('maximum')
             ]
         ];
-        return response()->json($success);
+        return response()->json($successMessage);
     }
 
 
@@ -43,6 +51,12 @@ class cartcontroll extends Controller
         $user = session("userID");
         $data = cart::where("user_id",$user)->get();
         return $data;
+    }
+
+    public function getProductOnCart(Request $req){
+        $id = $req->input("id");
+        $data = DB::select("select sum(quantity) as 'max' from cart where stat = 0 and fish_code = ?",[$id]);
+        return response()->json($data);
     }
 
 

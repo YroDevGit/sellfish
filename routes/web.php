@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\fishcontroll;
 use App\Http\Controllers\cartcontroll;
+use App\Http\Controllers\datacontroll;
 use Illuminate\Contracts\Session\Session;
 use App\Livewire\CartIcon;
 
@@ -27,7 +28,7 @@ Route::get('/', function () {
 Route::get('/test', function(){
 return view('admin/fish');
 });
-Route::get("/tst",[cartcontroll::class,"getProductOnCart"]);
+Route::get("/tst",[datacontroll::class,"getProductOnCart"]);
 
 Route::get("/homepage", function(){
     return view('index');

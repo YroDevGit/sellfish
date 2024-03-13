@@ -31,18 +31,39 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `stat` int(11) DEFAULT NULL,
   `purchase_date` datetime DEFAULT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table sellfish.cart: ~8 rows (approximately)
 INSERT INTO `cart` (`cart_id`, `user_id`, `fish_code`, `price`, `quantity`, `total`, `purchase_code`, `stat`, `purchase_date`) VALUES
-	(112, '5', 'CD2024Mar05010334ANCRI7G48UL', 500, 1, 500, 'L56TIC2024Mar05120312R7', 0, '2024-03-05 12:12:22'),
-	(113, '5', 'CD2024Mar05010334ANCRI7G48UL', 500, 1, 500, '0ADFY52024Mar051203131L', 0, '2024-03-05 12:13:07'),
-	(114, '5', 'CD2024Mar05010334ANCRI7G48UL', 500, 1, 500, '6ICF8N2024Mar05120313KR', 0, '2024-03-05 12:13:21'),
-	(115, '5', 'CD2024Mar05010334ANCRI7G48UL', 500, 1, 500, '6MH0D72024Mar05120313ZE', 0, '2024-03-05 12:13:53'),
-	(116, '5', 'CD2024Mar05130354RGOILP8MCND', 600, 1, 600, 'GCMK4R2024Mar05130359TY', 0, '2024-03-05 13:59:07'),
-	(117, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 1, 80, 'ETMPYI2024Mar05230345K1', 0, '2024-03-05 23:45:37'),
-	(118, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 1, 80, 'CRI3PG2024Mar0600032419', 0, '2024-03-06 00:24:20'),
-	(119, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 1, 80, 'ADLFO32024Mar06010314ZI', 0, '2024-03-06 01:14:26');
+	(226, '5', 'CD2024Mar06120336FGE80USDL69', 677, 4, 677, 'CD2024Mar12130358UHA3T5172ZC', 0, '2024-03-12 13:58:51'),
+	(227, '5', 'CD2024Mar06120336FGE80USDL69', 677, 4, 677, 'CD2024Mar12140303F9N3I1R0YPC', 0, '2024-03-12 14:03:44'),
+	(228, '5', 'CD2024Mar051303585Z6OST2YCMH', 300, 4, 300, 'CD2024Mar12140303862TG3YESNM', 0, '2024-03-12 14:03:52'),
+	(229, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 4, 80, 'CD2024Mar121403043O9E7N15TIZ', 0, '2024-03-12 14:04:00'),
+	(230, '5', 'CD2024Mar051303585Z6OST2YCMH', 300, 2, 300, 'CD2024Mar12140312E30PFGY92LO', 0, '2024-03-12 14:12:32'),
+	(231, '5', 'CD2024Mar05130354RGOILP8MCND', 600, 5, 600, 'CD2024Mar121403123T2YDO5U8AG', 0, '2024-03-12 14:12:45'),
+	(232, '5', 'CD2024Mar05130354RGOILP8MCND', 600, 5, 600, 'CD2024Mar12140314C274F39ERND', 0, '2024-03-12 14:14:20'),
+	(233, '5', 'CD2024Mar051303585Z6OST2YCMH', 300, 3, 300, 'CD2024Mar121403218HY45KCMN3R', 0, '2024-03-12 14:21:18'),
+	(234, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 0, 80, 'CD2024Mar13020354N5TDZ9MF4C0', 0, '2024-03-13 02:54:09'),
+	(235, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 1, 80, 'CD2024Mar13030302MRUFL2NYG7Z', 0, '2024-03-13 03:02:06'),
+	(236, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 1, 80, 'CD2024Mar13030304952O8YLHAFE', 0, '2024-03-13 03:04:42'),
+	(237, '5', 'CD2024Mar05010334ANCRI7G48UL', 500, 3, 500, 'CD2024Mar13040347RMH6EF9GC07', 0, '2024-03-13 04:47:07'),
+	(238, '5', 'CD2024Mar05140300KS02CYHON8M', 80, 1, 80, 'CD2024Mar130403500HDL7958KYF', 0, '2024-03-13 04:50:28');
+
+-- Dumping structure for table sellfish.data_table
+CREATE TABLE IF NOT EXISTS `data_table` (
+  `data_id` int(11) NOT NULL AUTO_INCREMENT,
+  `data_name` varchar(50) DEFAULT NULL,
+  `data_text` varchar(1000) DEFAULT NULL,
+  `data_section` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`data_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table sellfish.data_table: ~4 rows (approximately)
+INSERT INTO `data_table` (`data_id`, `data_name`, `data_text`, `data_section`) VALUES
+	(1, 'title', '$ell Fish', 'all'),
+	(2, 'phone', '09182772', 'all'),
+	(3, 'address', 'Himamaylan negros occidental', 'all'),
+	(4, 'email', 'tyronemalocon@gmail.com', 'all');
 
 -- Dumping structure for table sellfish.fish
 CREATE TABLE IF NOT EXISTS `fish` (
@@ -57,15 +78,16 @@ CREATE TABLE IF NOT EXISTS `fish` (
   `stat` int(11) DEFAULT NULL,
   `fish_image` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`fish_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
--- Dumping data for table sellfish.fish: ~5 rows (approximately)
+-- Dumping data for table sellfish.fish: ~6 rows (approximately)
 INSERT INTO `fish` (`fish_id`, `fish_code`, `fish_name`, `fish_color`, `price`, `quantity`, `description`, `date_added`, `stat`, `fish_image`) VALUES
 	(5, 'CD2024Mar05010334ANCRI7G48UL', 'test fish', 'blue red yellow', 500, '6', 'desc', '2024-03-05 01:34:25', 0, 'img2024Mar05010334.jpg'),
 	(6, 'CD2024Mar05130354RGOILP8MCND', 'Fish2', 'blue yellow orange', 600, '7', 'big', '2024-03-05 13:54:58', 0, 'img2024Mar05130354.jpg'),
 	(7, 'CD2024Mar051303585Z6OST2YCMH', 'Long nose', 'gray', 300, '9', 'desc', '2024-03-05 13:58:28', 0, 'img2024Mar05130358.jpg'),
 	(8, 'CD2024Mar05140300KS02CYHON8M', 'cute fiesh', 'orange', 80, '7', 'this is a sampple description 4 this is a sampple description 4 this is a sampple description 4 this is a sampple description 4this is a sampple description 4 this is a sampple description 4 this is a sampple description 4', '2024-03-05 14:00:20', 0, 'img2024Mar05140300.jpg'),
-	(9, 'CD2024Mar06010313M8FU7SN9GRO', 'Brown fish', 'brown', 3000, '4', 'this is a sample brown fish', '2024-03-06 01:13:50', 0, 'img2024Mar06010313.webp');
+	(9, 'CD2024Mar06010313M8FU7SN9GRO', 'Brown fish', 'brown', 3000, '4', 'this is a sample brown fish', '2024-03-06 01:13:50', 0, 'img2024Mar06010313.webp'),
+	(10, 'CD2024Mar06120336FGE80USDL69', 'Fish u', 'blue yellow orange', 677, '20', 'dea', '2024-03-06 12:36:28', 0, 'img2024Mar06120336.jpg');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -2,7 +2,7 @@
 
 @section('content')
 @include('functions.func')
-<div class="container-fluid py-5 mb-5 hero-header">
+<div class="container-fluid py-5 hero-header">
     <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-md-12 col-lg-7">
@@ -37,23 +37,24 @@
 </div>
 <!-- Hero End -->
 
+<!-- Fruits Shop Start-->
+<div id="fishShop"></div>
+<!-- Fruits Shop End-->
 
 <!-- Featurs Section Start -->
 <div id="features"></div>
 <!-- Featurs Section End -->
 
 
-<!-- Fruits Shop Start-->
-<div id="fishShop"></div>
-<!-- Fruits Shop End-->
+
 
 <!-- Banner Section Start-->
-<div class="container-fluid banner bg-secondary my-5">
+<div class="container-fluid banner bg-secondary my-5" style="display: none">
     <div class="container py-5">
         <div class="row g-4 align-items-center">
             <div class="col-lg-6">
                 <div class="py-4">
-                    <h1 class="display-3 text-white">Fresh Exotic Fruits</h1>
+                    <h1 class="display-3 text-white">Amazing fish for fish lovers</h1>
                     <p class="fw-normal display-3 text-dark mb-4">in Our Store</p>
                     <p class="mb-4 text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
                     <a href="#" class="banner-btn btn border-2 border-white rounded-pill text-dark py-3 px-5">BUY</a>
@@ -78,7 +79,7 @@
 
 
 <!-- Bestsaler Product Start -->
-<div class="container-fluid py-5">
+<div class="container-fluid py-5" style="display: none">
     <div class="container py-5">
         <div class="text-center mx-auto mb-5" style="max-width: 700px;">
             <h1 class="display-4">Bestseller Products</h1>

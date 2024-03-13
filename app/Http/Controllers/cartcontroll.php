@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\cart;
 use App\Http\Unique\code;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class cartcontroll extends Controller
 {
@@ -13,9 +14,16 @@ class cartcontroll extends Controller
     // add to cart
     public function addToCart(Request $req){
 
-        $req->validate([
-            "qty" => "integer|max:".$req->input('maximum')
+        $validator = Validator::make($req->all(), [
+            "qty" => "integer|min:1|max:".$req->input('maximum')
         ]);
+    
+        // If validation fails, return the error messages in JSON format
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->toArray()
+            ], 422); // 422 is the HTTP status code for Unprocessable Entity
+        }
 
         $user = $req->input('id');
         $fish = $req->input('fish');

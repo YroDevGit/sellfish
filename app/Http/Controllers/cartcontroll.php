@@ -54,7 +54,7 @@ class cartcontroll extends Controller
     }
 
 
-    //get the cart items
+    //get the cart items.
     public function getCartNumberOfItems(){
         $user = session("userID");
         $data = cart::where("user_id",$user)->get();

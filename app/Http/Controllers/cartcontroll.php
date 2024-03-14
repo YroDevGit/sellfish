@@ -62,7 +62,7 @@ class cartcontroll extends Controller
     }
 
     public function getProductOnCart(Request $req){
-        $id = session("userID");
+        $id = $req->input('id');
         $data = DB::select("select sum(quantity) as 'max' from cart where stat = 0 and fish_code = ?",[$id]);
         return response()->json($data);
     }

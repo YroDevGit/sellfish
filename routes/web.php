@@ -30,9 +30,16 @@ return view('admin/fish');
 });
 Route::get("/tst",[datacontroll::class,"getProductOnCart"]);
 
+
+
+//routes
 Route::get("/homepage", function(){
     return view('index');
 })->name("home");
+Route::geT("/cart", function(){
+    return view("cart");
+});
+
 
 
 

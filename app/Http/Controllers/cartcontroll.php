@@ -62,7 +62,7 @@ class cartcontroll extends Controller
     }
 
     public function getProductOnCart(Request $req){
-        $id = $req->input("id");
+        $id = session("userID");
         $data = DB::select("select sum(quantity) as 'max' from cart where stat = 0 and fish_code = ?",[$id]);
         return response()->json($data);
     }
@@ -78,6 +78,29 @@ class cartcontroll extends Controller
     // json data to front end
     public function getCartItems(Request $req){
         $data = $this->getCartNumberOfItems();
+        return response()->json($data);
+    }
+
+    public function showCartAll(){
+        $user = session("userID");
+        $data = DB::select("SELECT
+        MIN(f.fish_image) as img,
+        MIN(f.fish_name) AS fish_name,
+        MIN(c.price) as price,
+        SUM(c.quantity) AS total_quantity,
+        SUM(c.price) AS total_price,
+        SUM(c.total) AS total_amount,
+        MIN(c.purchase_code) AS purchase_code
+      FROM
+        cart c
+      INNER JOIN
+        fish f ON f.fish_code = c.fish_code
+      WHERE
+        c.user_id = ?
+      GROUP BY
+        c.fish_code;
+      
+      ",[$user]);
         return response()->json($data);
     }
 }
